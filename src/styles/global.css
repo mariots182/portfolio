@@ -1,4 +1,4 @@
-/* RESET */
+/* === Reset y tipografía base === */
 * {
   margin: 0;
   padding: 0;
@@ -7,18 +7,53 @@
 
 html,
 body {
-  height: 100%;
   font-family: "Inter", sans-serif;
-  background: radial-gradient(
-      ellipse at top,
-      rgba(255, 255, 255, 0.05) 0%,
-      #0d1117 40%
-    ),
-    #0d1117;
+  background: #1a0845;
   color: #c9d1d9;
+  line-height: 1.6;
+  height: 100%;
 }
 
-/* LINKS */
+/* === Grid base 12 columnas === */
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 1rem;
+  padding: 2rem 1rem;
+}
+
+.grid-8 {
+  grid-column: 3 / span 8; /* Centrado ocupando 8 columnas */
+}
+
+@media (max-width: 768px) {
+  .grid-8 {
+    grid-column: 2 / span 10;
+  }
+}
+
+@media (max-width: 480px) {
+  .grid-8 {
+    grid-column: 1 / span 12;
+  }
+}
+
+/* === Navegación === */
+.header {
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  margin-bottom: 2rem;
+}
+
+.nav__list {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  list-style: none;
+}
+
 a {
   color: #58a6ff;
   text-decoration: none;
@@ -27,26 +62,18 @@ a:hover {
   text-decoration: underline;
 }
 
-/* CONTENEDOR PRINCIPAL */
-.container {
-  width: 90%;
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 2rem 1rem;
-}
-
-/* CARTAS DE INFORMACIÓN */
+/* === Cards reutilizables === */
 .card {
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 12px;
   padding: 2rem;
-  margin-bottom: 2rem;
-  backdrop-filter: blur(8px);
+  margin: 2rem 0;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(8px);
 }
 
-/* TEXTOS */
+/* === Tipografía === */
 h1 {
   font-size: 2rem;
   margin-bottom: 1rem;
@@ -62,53 +89,17 @@ h2 {
 p,
 li {
   font-size: 1rem;
-  line-height: 1.6;
 }
 
-/* UL general */
 ul {
-  list-style: inside disc;
+  list-style: disc inside;
   margin-top: 1rem;
 }
 
-/* GALERIA SWIPER */
-.carousel-container {
+/* === Footer === */
+footer {
+  text-align: center;
   margin-top: 2rem;
-}
-
-.carousel-container img,
-.carousel-container video {
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-  border-radius: 8px;
-}
-
-/* MEDIA QUERIES */
-@media (max-width: 768px) {
-  h1 {
-    font-size: 1.75rem;
-  }
-
-  h2 {
-    font-size: 1.3rem;
-  }
-
-  .card {
-    padding: 1.5rem;
-  }
-}
-
-@media (max-width: 480px) {
-  h1 {
-    font-size: 1.5rem;
-  }
-
-  h2 {
-    font-size: 1.2rem;
-  }
-
-  .container {
-    padding: 1rem 0.5rem;
-  }
+  font-size: 0.9rem;
+  color: #888;
 }
